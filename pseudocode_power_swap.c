@@ -17,19 +17,25 @@ return calibrated_value;
 
 int validate(pirreading){
     int count=0;
+    int ncount=0;
     //here we can use the counter based approch to insure the correctness 
     //like PIR sensor used to detect the human presence 
+    if(pirreading==1){
+        count+=1;
+    }   
+    else{
+        ncount+=1;
+    }
+
+    
     if(count>=20){
         return 1;
     }
-    else{
+    else if(ncount>=5){
         count=0;
         return 0;
     }
-    if(pirreading==1){
-        count+=1;
-    }
-    
+ 
     
 }
 void loop(){
