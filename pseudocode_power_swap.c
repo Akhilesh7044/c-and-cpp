@@ -8,8 +8,10 @@ int knownweight=100;
 
 int calibrate(weightreading){
 // here we can calibrate the sensor if needed 
-//like the weight sensor having the strain gauges which need to calibrate with known weights
-int calibrated_value=weightreading/knownweight;  // formula is depends on the sensor 
+//like the weight sensor having the strain gauges which need to calibrate
+//with known weights
+int calibrated_value=weightreading/knownweight;
+    // formula is depends on the sensor 
 return calibrated_value;
 }
 
@@ -33,13 +35,16 @@ int validate(pirreading){
 void loop(){
 
 
-int pirreading=readpir();//assume that this readpir function will read the pir sensor data
+int pirreading=readpir();
+//assume that this readpir function will read the pir 
+//sensor data
 if(validate(pirreading)){
     printf("Human Presence Detected");
 }
 
 
-int weightreading=readweight();//assume that this readweight function will read the weight sensor data
+int weightreading=readweight();
+//assume that this readweight function will read the weight sensor data
 int actualweight=calibrate(weightreading);
 print("weight=%d",actualweight);
 
